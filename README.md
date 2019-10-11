@@ -50,15 +50,6 @@ The palette offset argument is optional. 2-bit bitmaps will default to palette o
 **cga.bas** -
 A BASIC script that can be loaded and run within X16 BASIC to change to the CGA palette.
 
-# Running in X16 Emulator
-PRG files built with this project can be autoloaded and run by the X16 emulator.
-
-Example:
-
-<pre>  path/to/x16emu -prg x16cga640.prg -run</pre>
-  
-This will fill the emulator screen with the image. The program runs in an infinite loop after loading the image, so the emulator will need to be shut down or restarted to stop it. Note that the display is scaled up 2x to make a 320 pixel-wide bitmap fill it.
-
 **x16cga320.data** -
 A raw export of **x16cga320.png**, which is a 4-color 320x240 bitmap. The PNG uses what would be palette offset 4. However, you can use build_prg.sh to load it into the X16 with any of the emulated CGA palettes (even the first four colors of offset 0).
 
@@ -67,6 +58,16 @@ A raw export of **x16cga640.png**, which is a 4-color 640x480 bitmap. The PNG us
 
 **x16tga.data** -
 A raw export of **x16tga.png**, which is a 16-color 320x240 bitmap. The PNG uses the PCJr/Tandy 16-color palette, which is palette offset zero with this toolchain.
+
+
+# Running in X16 Emulator
+PRG files built with this project can be autoloaded and run by the X16 emulator.
+
+Example:
+
+<pre>  path/to/x16emu -prg x16cga640.prg -run</pre>
+  
+This will fill the emulator screen with the image. The program runs in an infinite loop after loading the image, so the emulator will need to be shut down or restarted to stop it. Note that the display is scaled up 2x to make a 320 pixel-wide bitmap fill it.
 
 # Note on VERA limitations
 While this toolchain supports creating a 4-bit 640x480 bitmap, by default VERA does not have enough VRAM to support that, so it will fail at runtime, unless bank 2 of VRAM is enabled for a special emulator build. Most likely, the actual X16 hardware will only have VRAM banks 0 and 1 available to the user.
